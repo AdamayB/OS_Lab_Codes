@@ -1,5 +1,6 @@
 def findWaitingTime(processes,n,wt):
     rt=[0]*n
+    ct=[0]*n
     for i in range(n):
         rt[i]=processes[i][1]
 
@@ -31,13 +32,14 @@ def findWaitingTime(processes,n,wt):
             fint=t+1
 
             wt[short]= fint-proc[short][1]-proc[short][2]
+            ct[short]=fint
 
             if wt[short]<0:
                 wt[short]=0
 
         t+=1
 
-    return wt
+    return wt,ct
 #       PNo BT AT
 proc = [[1, 6, 1],
         [2, 8, 1],
@@ -45,6 +47,6 @@ proc = [[1, 6, 1],
         [4, 3, 3]]
 n = 4
 wt=[0]*n
-waiting_time=findWaitingTime(proc, n,wt)
-print(waiting_time)
+waiting_time,ct=findWaitingTime(proc, n,wt)
+print(waiting_time,ct)
 
