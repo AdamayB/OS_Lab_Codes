@@ -4,7 +4,7 @@ def round_robin(burst_time, quantum, arrival_time, execution_sequence):
     burst_remaining = burst_time.copy()
     process_index = [0] * n  # Keeps track of where each process left off
 
-    total_time = 0
+    total_time = arrival_time[0]
     execution_sequence.append(0)
     completion_time=[0]*n
     while True:
@@ -35,7 +35,7 @@ n = 3
 
 # Burst time of all processes
 burst_time = [10, 5, 8]
-arrival_time=[0,0,0]
+arrival_time=[1,2,3]
 # Time quantum
 quantum = 2;
 execution_sequence=[]
