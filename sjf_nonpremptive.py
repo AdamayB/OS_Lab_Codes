@@ -16,7 +16,7 @@ def sjfNonpreemptive(arr):
 
     wait=[]
     temp=arr[0][1]
-
+    ct=[]
     hq.heappush(wait,arr[0].copy())
     arr[0][1]=-1
 
@@ -40,8 +40,8 @@ def sjfNonpreemptive(arr):
             if (arr[i][1]<=ctime and arr[i][1]!=-1):
                 hq.heappush(wait,arr[i].copy())
                 arr[i][1]=-1
-
-
+        ct.append(ctime)
+    print(ct)
 arr = [None] * size
 
 arr[0] = [3, 4, "p1"]
