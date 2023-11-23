@@ -1,6 +1,6 @@
 def fcfs(process,n):
     wt=[0]*n
-
+    ct=[0]*n
     index = 0
     for i in range(n - 1):
         index = i
@@ -11,9 +11,8 @@ def fcfs(process,n):
         process[i], process[index] = process[index], process[i]
 
     bTime = [process[i][1] for i in range(n)]
-    wt[0]=0
-    ct=[0]*n
-    ct[0]=bTime[0]
+    wt[0]+=process[0][0]
+    ct[0]=process[0][1]+process[0][0]
     for i in range(1,n):
         wt[i]=wt[i-1]+bTime[i-1]
         ct[i]=ct[i-1]+bTime[i]
